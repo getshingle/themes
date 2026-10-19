@@ -1,0 +1,60 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Mint
+   Fresh green-teal on near-white, set in the friendly Figtree, with soft round
+   shapes. Clean and calm; suits clinics, dentists, wellness, kindergartens
+   and schools.
+
+   Fonts: https://fonts.googleapis.com/css2?family=Figtree:wght@400..700&display=swap
+   Browser color: #f7fbf9
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Each color is light-dark(light mode, dark mode). */
+  --paper: light-dark(#f7fbf9, #0c1613);     /* page background */
+  --surface: light-dark(#e5f2ec, #13221d);   /* cards and colored bands */
+  --ink: light-dark(#0f2620, #e3f1ec);       /* text and headings */
+  --muted: light-dark(#475f56, #9cb8ad);     /* secondary text */
+  --line: light-dark(#cfe3da, #22362f);      /* borders */
+  --accent: light-dark(#0b7560, #6fd6b8);    /* links, buttons, highlights */
+  --on-accent: light-dark(#ffffff, #052a20); /* text on accent buttons */
+
+  --font-body: "Figtree", system-ui, sans-serif;
+  --font-heading: "Figtree", system-ui, sans-serif;
+  --heading-weight: 700;
+  --heading-stretch: 100%;
+  --radius: 18px;                            /* corners of cards and pictures */
+  --radius-button: 999px;                    /* round buttons */
+  --width: 1160px;                           /* content width */
+}
+
+/* Anything below wins over the template's own styles. */
+
+h1, h2, h3 { letter-spacing: -.02em; }
+hgroup > p:has(+ :is(h1, h2)) {
+  display: inline-block;
+  padding: .3rem .85rem;
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: .8125rem;
+}
+:is(.cols-2, .cols-3, .cols-4) > article { border-color: transparent; }
+:is(.cols-2, .cols-3, .cols-4) > div > h3 { border-top: 0; padding-top: 0; }
+main > section.tinted { border-block: 0; }
+.hero figure img { border: 0; border-radius: 28px; }
+ol.steps > li { border-top: 0; padding-top: 0; }
+ol.steps > li::before {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: 1.125rem;
+}
+main > section.tinted ol.steps > li::before, main > section.tinted hgroup > p:has(+ :is(h1, h2)) { background: var(--paper); }

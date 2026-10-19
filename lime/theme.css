@@ -1,0 +1,63 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Lime
+   Black on white with a bright lime, bold Bricolage Grotesque headings and
+   round buttons. Loud and full of energy; suits gyms, sports clubs, events,
+   kids' activities and creative studios.
+
+   Fonts: https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap
+   Browser color: #ffffff
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Each color is light-dark(light mode, dark mode). */
+  --paper: light-dark(#ffffff, #0d0f0a);     /* page background */
+  --surface: light-dark(#f3f4ee, #171a12);   /* cards and colored bands */
+  --ink: light-dark(#0b0c09, #f2f5ea);       /* text and headings */
+  --muted: light-dark(#565b4e, #a6ac99);     /* secondary text */
+  --line: light-dark(#e1e4d8, #272b20);      /* borders */
+  --accent: light-dark(#3d6600, #c8f53c);    /* links and highlights: lime that stays readable */
+  --on-accent: light-dark(#ffffff, #0d0f0a); /* text on accent buttons */
+  --lime: #c8f53c;                           /* the bright lime of buttons and labels */
+
+  --font-body: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+  --heading-weight: 800;
+  --heading-stretch: 100%;
+  --radius: 14px;                            /* corners of cards and pictures */
+  --radius-button: 999px;                    /* round buttons */
+  --width: 1200px;                           /* content width */
+}
+
+/* Anything below wins over the template's own styles. */
+
+h1, h2, h3 { letter-spacing: -.035em; }
+main > section:first-child h1 { font-size: clamp(2.75rem, 1.4rem + 5vw, 5.5rem); line-height: .95; letter-spacing: -.05em; }
+hgroup > p:has(+ :is(h1, h2)) {
+  display: inline-block;
+  padding: .2rem .7rem;
+  border-radius: 8px;
+  background: var(--lime);
+  color: #0b0c09;
+  font-weight: 700;
+}
+.btn.primary, .btn.primary:hover { background: var(--lime); border-color: var(--lime); color: #0b0c09; }
+.btn.primary:hover { box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--lime) 90%, transparent); }
+:is(.cols-2, .cols-3, .cols-4) > article { border-color: transparent; }
+article:has(:is(h2, h3) a:hover) { border-color: var(--ink); }
+ol.steps > li { border-top: 0; padding-top: 0; }
+ol.steps > li::before {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0b0c09;
+  font-size: 1.25rem;
+}

@@ -1,0 +1,52 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Noir
+   Always dark: charcoal and warm gold, with classic Cormorant Garamond
+   headings, Jost text and sharp corners. Evening and elegant; suits
+   restaurants, wine bars, hotels and photographers.
+
+   Fonts: https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500..700&family=Jost:wght@400..600&display=swap
+   Browser color: #111110
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Always dark: one value per color. */
+  --paper: #111110;                          /* page background */
+  --surface: #1a1918;                        /* cards and colored bands */
+  --ink: #f0ebe2;                            /* text and headings */
+  --muted: #aaa296;                          /* secondary text */
+  --line: #2e2b28;                           /* borders */
+  --accent: #d0ab6a;                         /* links, buttons, highlights: gold */
+  --on-accent: #1b1407;                      /* text on accent buttons */
+
+  --font-body: "Jost", system-ui, sans-serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --heading-weight: 600;
+  --heading-stretch: 100%;
+  --radius: 0px;                             /* sharp corners */
+  --radius-button: 0px;
+  --width: 1180px;                           /* content width */
+}
+
+/* Always dark: the same colors in both modes, so the light/dark button goes. */
+:root, :root[data-theme] { color-scheme: dark; }
+.theme-toggle { display: none; }
+body > header { padding-right: max(var(--gutter), (100% - var(--width)) / 2); }
+
+h1, h2, h3 { letter-spacing: 0; line-height: 1.1; }
+main h1 { font-size: clamp(2.75rem, 1.5rem + 4.5vw, 5rem); font-weight: 500; }
+:is(hgroup, main > section, main > section > div > div) > h2 { font-size: clamp(2rem, 1.4rem + 2vw, 2.75rem); font-weight: 500; }
+hgroup > p:has(+ :is(h1, h2)) { font-size: .75rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; }
+.btn { font-size: .8125rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+.logo { font-size: 1.5rem; font-weight: 600; }
+#menu a:not(.btn) { font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; }
+:is(.cols-2, .cols-3, .cols-4) > article { background: transparent; border-color: var(--line); }
+article:has(:is(h2, h3) a:hover) { border-color: var(--accent); }
+:is(.cols-2, .cols-3, .cols-4) > div > h3, ol.steps > li { border-top: 1px solid var(--accent); }
+ol.steps > li::before { font-style: italic; font-weight: 500; }
+blockquote { font-family: var(--font-heading); font-size: 1.625rem; font-style: italic; }

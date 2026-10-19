@@ -1,0 +1,46 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Graphite
+   Always dark: graphite grey with a strong orange, set in Manrope with heavy
+   headings. Solid and practical; suits trades and workshops, garages,
+   builders and technical services.
+
+   Fonts: https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap
+   Browser color: #1b1c1f
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Always dark: one value per color. */
+  --paper: #1b1c1f;                          /* page background */
+  --surface: #25272b;                        /* cards and colored bands */
+  --ink: #eeece8;                            /* text and headings */
+  --muted: #a6a49f;                          /* secondary text */
+  --line: #36383d;                           /* borders */
+  --accent: #ff8a3d;                         /* links, buttons, highlights */
+  --on-accent: #1d0e03;                      /* text on accent buttons */
+
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-heading: "Manrope", system-ui, sans-serif;
+  --heading-weight: 800;
+  --heading-stretch: 100%;
+  --radius: 8px;                             /* corners of cards and pictures */
+  --radius-button: 8px;                      /* corners of buttons */
+  --width: 1200px;                           /* content width */
+}
+
+/* Always dark: the same colors in both modes, so the light/dark button goes. */
+:root, :root[data-theme] { color-scheme: dark; }
+.theme-toggle { display: none; }
+body > header { padding-right: max(var(--gutter), (100% - var(--width)) / 2); }
+
+h1, h2, h3 { letter-spacing: -.03em; }
+hgroup > p:has(+ :is(h1, h2)) { display: flex; align-items: center; gap: .75rem; font-size: .8125rem; letter-spacing: .12em; text-transform: uppercase; }
+hgroup > p:has(+ :is(h1, h2))::before { content: ""; width: 2rem; height: 3px; background: var(--accent); }
+article:has(:is(h2, h3) a:hover) { border-color: var(--accent); }
+:is(.cols-2, .cols-3, .cols-4) > div > h3, ol.steps > li { border-top-color: var(--accent); }
+.btn { font-weight: 700; }

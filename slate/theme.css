@@ -1,0 +1,53 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Slate
+   Navy on cool blue-grey, set in IBM Plex Sans, with white cards and crisp
+   corners. Orderly and trustworthy; suits finance, law, consulting and
+   engineering.
+
+   Fonts: https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400..700&display=swap
+   Browser color: #eef1f5
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Each color is light-dark(light mode, dark mode). */
+  --paper: light-dark(#eef1f5, #0f141b);     /* page background */
+  --surface: light-dark(#ffffff, #18202a);   /* cards and colored bands */
+  --ink: light-dark(#111a26, #e6ebf2);       /* text and headings */
+  --muted: light-dark(#4d5a6b, #9eabbd);     /* secondary text */
+  --line: light-dark(#d3dae4, #273241);      /* borders */
+  --accent: light-dark(#24406b, #9fbbe6);    /* links, buttons, highlights */
+  --on-accent: light-dark(#ffffff, #0d1a2e); /* text on accent buttons */
+
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-heading: "IBM Plex Sans", system-ui, sans-serif;
+  --heading-weight: 600;
+  --heading-stretch: 100%;
+  --radius: 4px;                             /* corners of cards and pictures */
+  --radius-button: 4px;                      /* corners of buttons */
+  --width: 1200px;                           /* content width */
+}
+
+/* Anything below wins over the template's own styles. */
+
+body > header { background: color-mix(in srgb, var(--surface) 92%, transparent); }
+main > section:first-child h1 { letter-spacing: -.03em; }
+hgroup > p:has(+ :is(h1, h2)) { font-size: .8125rem; letter-spacing: .1em; text-transform: uppercase; }
+:is(.cols-2, .cols-3, .cols-4) > article { box-shadow: 0 1px 2px rgb(17 26 38 / .06); }
+article:has(:is(h2, h3) a:hover) { border-color: var(--accent); }
+ol.steps > li { border-top-color: var(--accent); }
+ol.steps > li::before {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 1.0625rem;
+}
