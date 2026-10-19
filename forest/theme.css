@@ -1,0 +1,26 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Forest
+   Calm forest green on pale stone, with wide Archivo headings.
+   Made for studios, architects and makers.
+
+   Fonts: https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap
+   Browser color: #2f5546
+   ============================================================================== */
+
+:root {
+  --paper: light-dark(#f2f3ef, #131816);     /* page background */
+  --surface: light-dark(#ffffff, #1a201d);   /* cards and colored bands */
+  --ink: light-dark(#17201b, #e8ede8);       /* text and headings */
+  --muted: light-dark(#56625b, #9da8a1);     /* secondary text */
+  --line: light-dark(#d9ded8, #2a322e);      /* borders */
+  --accent: light-dark(#2f5546, #8fc4ad);    /* links, buttons, highlights */
+  --on-accent: light-dark(#ffffff, #0f1f19); /* text on accent buttons */
+
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --heading-weight: 600;
+  --heading-stretch: 112%;                   /* Archivo has wider styles; 100% is normal */
+  --radius: 4px;
+  --width: 1200px;                           /* content width */
+}

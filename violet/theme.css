@@ -1,0 +1,54 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Violet
+   Ink and violet on white, set in Geist. Large, tight headings, soft grey
+   cards and round buttons; numbered steps sit in a ring.
+
+
+   Fonts: https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap
+   Browser color: #ffffff
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Each color is light-dark(light mode, dark mode). */
+  --paper: light-dark(#ffffff, #0b0b0d);     /* page background */
+  --surface: light-dark(#f4f4f6, #151518);   /* cards and colored bands */
+  --ink: light-dark(#0b0b0d, #f4f4f6);       /* text and headings */
+  --muted: light-dark(#62626c, #a3a3ad);     /* secondary text */
+  --line: light-dark(#e5e5ea, #26262c);      /* borders */
+  --accent: light-dark(#5b3df5, #a99bff);    /* links, buttons, highlights */
+  --on-accent: light-dark(#ffffff, #0b0b0d); /* text on accent buttons */
+
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-heading: "Geist", system-ui, sans-serif;
+  --heading-weight: 600;
+  --heading-stretch: 100%;                   /* wider or narrower headings, if the font has widths */
+  --radius: 14px;                            /* corners of cards and pictures */
+  --radius-button: 999px;                    /* corners of buttons; 999px makes them round */
+  --width: 1200px;                           /* content width */
+}
+
+/* Anything below wins over the template's own styles. */
+
+h1, h2, h3 { letter-spacing: -.03em; }
+main > section:first-child h1 {
+  font-size: clamp(2.75rem, 1.5rem + 4.8vw, 5.25rem);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+:is(.cols-2, .cols-3, .cols-4) > article { border-color: transparent; }
+:is(.cols-2, .cols-3, .cols-4) > article:has(:is(h2, h3) a:hover) { border-color: var(--line); }
+ol.steps > li::before {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 1rem;
+}

@@ -1,0 +1,35 @@
+/* SPDX-License-Identifier: MIT */
+/* ==============================================================================
+   Theme: Clay
+   Terracotta on warm white, set in Instrument Sans. Warm and friendly; suits
+   cafés, shops, craftspeople and anyone local.
+
+   Fonts: https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap
+   Browser color: #faf6f1
+
+   The two lines above are read by build.sh: "Fonts" is the link from
+   fonts.google.com ("none" for no web fonts), "Browser color" colors the
+   browser bar on phones. Files next to this one (fonts, images) are published
+   in /assets/, so url(fonts/my-font.woff2) works here.
+   ============================================================================== */
+
+:root {
+  /* Each color is light-dark(light mode, dark mode). */
+  --paper: light-dark(#faf6f1, #17120f);     /* page background */
+  --surface: light-dark(#ffffff, #211a16);   /* cards and colored bands */
+  --ink: light-dark(#231a15, #f3ebe5);       /* text and headings */
+  --muted: light-dark(#6c5d54, #b4a59b);     /* secondary text */
+  --line: light-dark(#eadfd6, #342923);      /* borders */
+  --accent: light-dark(#b0461f, #f0a07c);    /* links, buttons, highlights */
+  --on-accent: light-dark(#ffffff, #2a120a); /* text on accent buttons */
+
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-heading: "Instrument Sans", system-ui, sans-serif;
+  --heading-weight: 600;
+  --heading-stretch: 100%;                   /* wider or narrower headings, if the font has widths */
+  --radius: 14px;                            /* corners of buttons, cards and pictures */
+  --radius-button: 999px;                    /* round buttons */
+  --width: 1200px;                           /* content width */
+}
+
+/* Anything else you add here wins over the template's own styles. */
